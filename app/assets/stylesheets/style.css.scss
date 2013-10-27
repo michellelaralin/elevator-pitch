@@ -562,7 +562,7 @@ fieldset[disabled] .btn {
       padding: 30px;
     }
 
-  @media (max-width: 480px) {
+
     .wall {
       width: 0;
     }
@@ -580,19 +580,7 @@ fieldset[disabled] .btn {
       padding: 0 15px;
       /*max-height: 400px;*/
     }
-  }
 
-  @media (min-width: 481px) and (max-width: 768px) {
-    .wall {
-      width: 0;
-    }
-    .elevator-pitch-text {
-      padding: 30px;
-    }
-    .absolute-center {
-      padding: 0 20px;
-    }
-  }
 
   @media (min-width: 768px) {
     .wall {
