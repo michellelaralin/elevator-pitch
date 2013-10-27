@@ -71,9 +71,11 @@ function elevatorPitch() {
 }
 
 $(function(){
+  $(".activate-tooltip").tooltip();
+});
 
 
-  $(".get-new-pitch-button").on("click", function(){
+  function NextPitch() {
     $(this).blur();
     doors = $('.door');
     mover = $('.elevator-mover');
@@ -103,9 +105,8 @@ $(function(){
         $(this).html(elevatorPitch());
       });
     }, 900);
-  });
+  }
 
-  $(".activate-tooltip").tooltip();
-});
+
 
 
