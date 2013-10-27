@@ -310,6 +310,7 @@ $wine: #7e3c5e;
 $accent: $dark-purple;
 
 $complimentary: complement($accent);
+$complimentary: #54cfae;
 $complimentary-dark: darken($complimentary, 10%);
 $cgrey: desaturate($complimentary, 15%);
 $cgrey-dark: desaturate($complimentary-dark, 15%);
@@ -318,11 +319,15 @@ $sans-serif: "museo-sans-rounded", "omnes-pro", sans-serif;
 $background-color: mix($primary, $accent, 40%);
 $cbg: complement($background-color);
 $entrepreneur-color: lighten(mix($primary-light, $accent, 90%), 5%);
+$entrepreneur-color: lighten($primary, 5%);
+$entrepreneur-color: $primary-light;
 $entrepeneur-facials-color: mix($primary, $accent, 50%);
 $speech-bubble-background-color: $primary-light;
 $speech-bubble-text-color: $accent;
-$button-background-color: mix($complimentary, saturate(darken($background-color, 10%), 10%), 15%);
-$button-text-color: lighten($background-color, 20%);
+$button-background-color: saturate(darken($background-color, 5%), 10%);
+$button-background-color: #54cfae;
+$button-text-color: lighten($background-color, 30%);
+$button-text-color: lighten($button-background-color, 30%);
 $wall-color: mix($complimentary, saturate(darken($background-color, 10%), 10%), 20%);
 $elevator-door-color: darken(mix($accent, $primary, 20%), 10%);
 $elevator-border: darken($elevator-door-color, 5%);
@@ -362,22 +367,22 @@ $elevator-mover-color: darken(mix($complimentary, $primary, 20%), 10%);
     overflow-x: hidden;
     height: 100%;
     font-family: "omnes-pro", sans-serif;
-    font-size: 15px;
+    font-size: 13px;
     line-height: 1.4;
     font-weight: 600;
-    color: $primary;
+    color: lighten(saturate($primary, 10%), 10%);
     @include gradient($background-color, $primary);
   }
 a {
   text-decoration: none;
-  color: darken(saturate($primary, 10%), 5%);
+  color: saturate(lighten(saturate($primary, 10%), 10%), 60%);
   @include fast-transition;
 }
 a:hover,
 a:focus {
   text-decoration: none;
   cursor: pointer;
-  color: lighten(saturate($primary, 10%), 10%);
+  color: mix($accent-light, $primary, 65%);
 }
 
 .btn {
@@ -463,8 +468,9 @@ fieldset[disabled] .btn {
     height: auto;
   }
   .entrepreneur {
-    font-size: 100px;
+    font-size: 80px;
     margin-top: 30px;
+    color: $entrepreneur-color;
   }
 
   .face {
@@ -483,10 +489,11 @@ fieldset[disabled] .btn {
     letter-spacing: 2px;
     font-size: 20px;
     padding: 13px 24px;
-    border-radius: 25px;
+    border-radius: 20px;
     text-transform: uppercase;
     position: relative;
     bottom: 2px;
+    margin-top: 0px;
     box-shadow: 0 2px 0 darken($button-background-color, 3%);
      &:hover, &:focus {
         color: lighten($button-text-color, 10%);
@@ -501,24 +508,26 @@ fieldset[disabled] .btn {
       box-shadow: none;
     }
   }
-
+.absolute {
+  position: absolute;
+}
       .entrepreneur-right-eye {
-      right: 38%;
-      top: 20%;
+      right: 41%;
     }
     .entrepreneur-left-eye {
-      left: 38%;
-      top: 20%;
+      left: 41%;
+      
     }
     .eye {
-      font-size: 30px;
+      font-size: 14px;
       color: $accent;
       font-weight: bold;
+      top: 17%;
       }
     .entrepreneur-mouth {
-      left: 38%;
-      top: 40%;
-      font-size: 37px;
+      left: 42%;
+      top: 30%;
+      font-size: 20px;
       color: $accent;
       font-weight: bold;
     }
@@ -545,10 +554,6 @@ fieldset[disabled] .btn {
     .absolute-center {
       padding: 0 15px;
       /*max-height: 400px;*/
-    }
-    .get-new-pitch-button {
-      font-size: 30px;
-      padding: 10px 15px;
     }
   }
 
@@ -589,29 +594,6 @@ fieldset[disabled] .btn {
       padding: 0 40px;
      /* height: auto;*/
     }
-    .entrepreneur-right-eye {
-      right: 38%;
-      top: 20%;
-    }
-    .entrepreneur-left-eye {
-      left: 38%;
-      top: 20%;
-    }
-    .eye {
-      font-size: 30px;
-      color: $accent;
-      font-weight: bold;
-      }
-    .entrepreneur-mouth {
-      left: 38%;
-      top: 40%;
-      font-size: 37px;
-      color: $accent;
-      font-weight: bold;
-    }
-  }
-  .entrepreneur {
-    color: $entrepreneur-color;
   }
   .eye, .entrepreneur-mouth {
     color: $entrepeneur-facials-color;
@@ -846,41 +828,8 @@ hyphens: auto;
    left: -9999px !important;
 }
 
-.show {
-  display: block;
-}
 
-.invisible {
-  visibility: hidden;
-}
 
-.affix {
-  position: fixed;
+.text-right {
+  text-align: right;
 }
-
-.fade {
-  opacity: 0;
-  -webkit-transition: opacity 0.15s linear;
-  transition: opacity 0.15s linear;
-}
-.fade.in {
-  opacity: 1;
-}
-.collapse {
-  display: none;
-}
-.collapse.in {
-  display: block;
-}
-.collapsing {
-  position: relative;
-  height: 0;
-  overflow: hidden;
-  -webkit-transition: height 0.35s ease;
-  transition: height 0.35s ease;
-}
-
-.slidedown-toggle {
-  cursor: pointer;
-}
-

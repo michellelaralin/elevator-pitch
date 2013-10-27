@@ -3,24 +3,23 @@
     .dynamicHeight
       -# %iframe{width: "5", height: "5", src: "//www.youtube.com/embed/2m7P8BRTilk?start=59&autoplay=1", frameborder: "0", allowfullscreen: true}
       .background-transparent.append-area
+        .text-right
+          %a{href: "https://twitter.com/share", class: "twitter-share-button", "data-url" => "http://startupelevatorpitch.com", "data-text" => "Startup Elevator Pitch Generator (100% cloud-based, disruptive, and agile)", "data-dnt" => "true"}
+            Tweet
         %h1.elevator-pitch-text
-          We generate groundbreaking elevator pitches for startups.
+          Groundbreaking, agile elevator pitches for your startup.
       .background-transparent.text-center
         .margin10.inline-block.relative
-          %i.icon-person5.entrepreneur
-          %i.icon-lazy.absolute.face
-          / .entrepreneur-left-eye.absolute.eye
-          /   &bull;
-          / .entrepreneur-right-eye.absolute.eye
-          /   &bull;
-          / .entrepreneur-mouth.absolute
-          /   &smile;
+          %i.icon-person4.entrepreneur
+          .entrepreneur-left-eye.absolute.eye
+            &bull;
+          .entrepreneur-right-eye.absolute.eye
+            &bull;
+          .entrepreneur-mouth.absolute
+            &smile;
       .text-center
         %a.btn.btn-xlarge.get-new-pitch-button.activate-tooltip
           Pitch Me
-        .margin30
-        %a{href: "https://twitter.com/share", class: "twitter-share-button", "data-url" => "http://startupelevatorpitch.com", "data-text" => "Startup Elevator Pitch Generator (100% cloud-based, disruptive, and agile)", "data-dnt" => "true"}
-          Tweet
         .margin30.credits
           Elevator pitch generator built by
           =link_to "Michelle Lara Lin", "http://michellelaralin.com", target: "_blank"
