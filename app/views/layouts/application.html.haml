@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+%html
+  %head
+    %title Startup Elevator Pitch Generator
+    = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = csrf_meta_tags
+    %script{src: "//use.typekit.net/ohc4vph.js", type: "text/javascript"}
+    :javascript
+      try{Typekit.load();}catch(e){}
+  %body
+    = yield
+    =javascript_include_tag "scripts"
+    :javascript
+      !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
