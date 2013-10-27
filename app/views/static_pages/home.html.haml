@@ -3,11 +3,15 @@
     .dynamicHeight
       -# %iframe{width: "5", height: "5", src: "//www.youtube.com/embed/2m7P8BRTilk?start=59&autoplay=1", frameborder: "0", allowfullscreen: true}
       .background-transparent.append-area
-        .text-right
-          %a{href: "https://twitter.com/share", class: "twitter-share-button", "data-url" => "http://startupelevatorpitch.com", "data-text" => "Startup Elevator Pitch Generator (100% cloud-based, disruptive, and agile)", "data-dnt" => "true"}
-            Tweet
+        .text-right.relative.sharing-area
+          .transparent.twitter-button-area
+            %a{href: "https://twitter.com/share", class: "twitter-share-button", "data-url" => "http://startupelevatorpitch.com", "data-text" => "Startup Elevator Pitch Generator (100% cloud-based, disruptive, and agile)", "data-dnt" => "true", "data-count" => "none"}
+              Tweet
+          %a.absolute.tweet-link
+            %i.icon-twitter
+            tweet
         %h1.elevator-pitch-text
-          Groundbreaking, agile elevator pitches for your startup.
+          Ready for some elevator pitches that will DISRUPT your startup?
       .background-transparent.text-center
         .margin10.inline-block.relative
           %i.icon-person4.entrepreneur
@@ -21,16 +25,14 @@
         %a.btn.btn-xlarge.get-new-pitch-button.activate-tooltip
           Pitch Me
         .margin30.credits
-          Elevator pitch generator built by
-          =link_to "Michelle Lara Lin", "http://michellelaralin.com", target: "_blank"
-          %br 
-          Co-founder of 
-          =link_to "Quotesome", "https://www.quotesome.com", target: "_blank"
+          Built by
+          =link_to "Michelle Lara Lin", "http://michellelaralin.com", target: "_blank", class: "activate-tooltip", title: "I like to build and design stuff. You should check out Quotesome. ;)", data:{placement: "bottom", animation: "fade"}
+          , co-founder of 
+          =link_to "Quotesome", "https://www.quotesome.com", target: "_blank", class: "activate-tooltip", title: "A data-driven content discovery toolkit disrupting the traditional textual media engagement experience through crowdsourced content and personalization.", data:{placement: "bottom", animation: "fade"}
+          %i.icon-heart
 .door.door-left
 .door.door-right
 
 
--# .wall.wall-left
-    .wall.wall-right
 
 .elevator-mover

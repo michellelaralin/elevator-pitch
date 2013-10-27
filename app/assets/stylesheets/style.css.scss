@@ -288,6 +288,13 @@ $salmon: #eec5cb;
   background: -ms-linear-gradient(top, $from 0%, $to 100%);
   background: linear-gradient(to bottom, $from 0%, $to 100%);
 }
+@mixin animation($name, $duration) {
+  -webkit-animation: $name $duration; /* Safari 4+ */
+  -moz-animation:    $name $duration; /* Fx 5+ */
+  -o-animation:      $name $duration; /* Opera 12+ */
+  animation:         $name $duration; /* IE 10+ */
+}
+
 @mixin transition($transition) {
   -webkit-transition: $transition;
      -moz-transition: $transition;
@@ -296,11 +303,21 @@ $salmon: #eec5cb;
           transition: $transition;
 }
 
-        @mixin fast-transition{
-          @include transition(all 0.2s ease-in-out);
-        }
+  @mixin fast-transition{
+    @include transition(all 0.2s ease-in-out);
+  }
 
+@mixin keyframez($name) {
+ 
+  @-webkit-keyframes $name { @content }
+   
+  @-moz-keyframes $name { @content }
+   
+  @-ms-keyframes $name { @content }
+   
+  @keyframes $name { @content }
 
+}
 
 $primary: $dark-cream;
 $primary-light: $medium-cream;
@@ -308,9 +325,12 @@ $dark-purple: #6b2667;
 $dark-blue: #54517e;
 $wine: #7e3c5e;
 $accent: $dark-purple;
+$turquoise: darken(#54cfae, 5%);
+$orange: #f3c59a;
+$orange: desaturate(#fbb97b, 5%);
 
 $complimentary: complement($accent);
-$complimentary: #54cfae;
+$complimentary: $orange;
 $complimentary-dark: darken($complimentary, 10%);
 $cgrey: desaturate($complimentary, 15%);
 $cgrey-dark: desaturate($complimentary-dark, 15%);
@@ -325,13 +345,14 @@ $entrepeneur-facials-color: mix($primary, $accent, 50%);
 $speech-bubble-background-color: $primary-light;
 $speech-bubble-text-color: $accent;
 $button-background-color: saturate(darken($background-color, 5%), 10%);
-$button-background-color: #54cfae;
+$button-background-color: $complimentary;
 $button-text-color: lighten($background-color, 30%);
 $button-text-color: lighten($button-background-color, 30%);
+$button-text-color: lighten($primary-light, 5%);
 $wall-color: mix($complimentary, saturate(darken($background-color, 10%), 10%), 20%);
 $elevator-door-color: darken(mix($accent, $primary, 20%), 10%);
 $elevator-border: darken($elevator-door-color, 5%);
-$elevator-mover-color: darken(mix($complimentary, $primary, 20%), 10%);
+$elevator-mover-color: darken(mix($primary, $accent, 10%), 10%);
 
   .elevator-slider { position: relative; overflow: auto; }
   .elevator-slider ul { padding: 0; }
@@ -367,7 +388,7 @@ $elevator-mover-color: darken(mix($complimentary, $primary, 20%), 10%);
     overflow-x: hidden;
     height: 100%;
     font-family: "omnes-pro", sans-serif;
-    font-size: 13px;
+    font-size: 15px;
     line-height: 1.4;
     font-weight: 600;
     color: lighten(saturate($primary, 10%), 10%);
@@ -382,7 +403,8 @@ a:hover,
 a:focus {
   text-decoration: none;
   cursor: pointer;
-  color: mix($accent-light, $primary, 65%);
+  color: mix($accent-light, $primary, 70%);
+  color: desaturate($accent, 30%);
 }
 
 .btn {
@@ -425,18 +447,21 @@ fieldset[disabled] .btn {
   filter: alpha(opacity=65);
 }
 
+.tweet-link {
+  top: 0;
+  right: 60px;
+  z-index: -2;
+}
+
+.sharing-area {
+  padding: 0 60px;
+}
+
   .credits {
     max-width: 500px;
     margin: 30px auto;
   }
 
-  .wall {
-    background: $wall-color;
-    width: 0;
-    height: 100%;
-    position: fixed;
-    z-index: 999999;
-  }
 
   .wall-left {
     top: 0;
@@ -492,19 +517,19 @@ fieldset[disabled] .btn {
     border-radius: 20px;
     text-transform: uppercase;
     position: relative;
-    bottom: 2px;
+    bottom: 5px;
     margin-top: 0px;
-    box-shadow: 0 2px 0 darken($button-background-color, 3%);
+    box-shadow: 0 5px 0 darken($button-background-color, 5%);
      &:hover, &:focus {
         color: lighten($button-text-color, 10%);
         background-color: saturate($button-background-color, 10%);
         position: relative;
-        bottom: 12px;
-        box-shadow: 0 8px 0 darken($button-background-color, 3%);
+        bottom: 15px;
+        box-shadow: 0 10px 0 darken($button-background-color, 3%);
       }
     &:active {
       position: relative;
-      bottom: 0px; 
+      bottom: -2px; 
       box-shadow: none;
     }
   }
@@ -615,12 +640,15 @@ fieldset[disabled] .btn {
     left: 0;
     width: 100%;
     height: 100%;
-    background: $elevator-mover-color;
+    background: mix($elevator-mover-color, $primary, 20%);
   }
 
   .elevator-mover.animate {
-    -webkit-animation: up 0.8s;
+    @include animation(up, 0.8s);
     -webkit-animation-delay: 0.6s;
+    -moz-animation-delay: 0.6s;
+    -o-animation-delay: 0.6s;
+    -animation-delay: 0.6s;
   }
 
   .door-left {
@@ -628,16 +656,16 @@ fieldset[disabled] .btn {
     border-right: 5px solid $elevator-border;
   }
   .door-left.animate {
-    -webkit-animation: left 2.5s;
+    @include animation(left, 2.5s);
   }
   .door-right {
     right: -100%;
     border-left: 5px solid $elevator-border;
   }
   .door-right.animate {
-    -webkit-animation: right 2.5s;
+    @include animation(right,2.5s);
   }
-  @-webkit-keyframes up {
+  @include keyframez(up) {
     0% {
       bottom: -100%;
     }
@@ -646,7 +674,7 @@ fieldset[disabled] .btn {
     }
   }
 
-  @-webkit-keyframes left {
+  @include keyframez(left) {
     0% {
 
     }
@@ -663,7 +691,7 @@ fieldset[disabled] .btn {
       left: -100%;
     }
   }
-  @-webkit-keyframes right {
+  @include keyframez(right) {
     0% {
 
     }
@@ -832,4 +860,106 @@ hyphens: auto;
 
 .text-right {
   text-align: right;
+}
+
+
+.tooltip {
+  position: absolute;
+  z-index: 1030;
+  display: block;
+  visibility: visible;
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+.tooltip.in {
+  opacity: 1;
+  filter: alpha(opacity=90);
+}
+.tooltip.top {
+  margin-top: -3px;
+  padding: 5px 0;
+}
+.tooltip.right {
+  margin-left: 3px;
+  padding: 0 5px;
+}
+.tooltip.bottom {
+  margin-top: 3px;
+  padding: 5px 0;
+}
+.tooltip.left {
+  margin-left: -3px;
+  padding: 0 5px;
+}
+
+$tooltip-bg: desaturate($accent, 30%);
+.tooltip-inner {
+  max-width: 200px;
+  padding: 5px 5px;
+  color: $primary;
+  text-align: center;
+  text-decoration: none;
+  background-color: $tooltip-bg;
+  border-radius: 5px;
+}
+.tooltip-arrow {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+}
+.tooltip.top .tooltip-arrow {
+  bottom: 0;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px 5px 0;
+  border-top-color: $tooltip-bg;
+}
+.tooltip.top-left .tooltip-arrow {
+  bottom: 0;
+  left: 5px;
+  border-width: 5px 5px 0;
+  border-top-color: $tooltip-bg;
+}
+.tooltip.top-right .tooltip-arrow {
+  bottom: 0;
+  right: 5px;
+  border-width: 5px 5px 0;
+  border-top-color: $tooltip-bg;
+}
+.tooltip.right .tooltip-arrow {
+  top: 50%;
+  left: 0;
+  margin-top: -5px;
+  border-width: 5px 5px 5px 0;
+  border-right-color: $tooltip-bg;
+}
+.tooltip.left .tooltip-arrow {
+  top: 50%;
+  right: 0;
+  margin-top: -5px;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #000000;
+}
+.tooltip.bottom .tooltip-arrow {
+  top: 0;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 0 5px 5px;
+  border-bottom-color: $tooltip-bg;
+}
+.tooltip.bottom-left .tooltip-arrow {
+  top: 0;
+  left: 5px;
+  border-width: 0 5px 5px;
+  border-bottom-color: $tooltip-bg;
+}
+.tooltip.bottom-right .tooltip-arrow {
+  top: 0;
+  right: 5px;
+  border-width: 0 5px 5px;
+  border-bottom-color: $tooltip-bg;
 }

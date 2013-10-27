@@ -71,6 +71,8 @@ function elevatorPitch() {
 }
 
 $(function(){
+
+
   $(".get-new-pitch-button").on("click", function(){
     $(this).blur();
     doors = $('.door');
@@ -91,10 +93,19 @@ $(function(){
     setTimeout(function(){
       pitch.html();
       pitch.fadeIn(500, function(){
+
+        var tweetLength = 116;
+        var tweetText = elevatorPitch();
+        var shortTweet = tweetText.substring(0,tweetLength);
+
+        $(".twitter-button-area").html("<a href=\"https://www.twitter.com/share\" class=\"twitter-share-button\" data-url=\"http://startupelevatorpitch.com\" data-text=\"&ldquo;" + shortTweet + "&rdquo;\" data-dnt=\"true\" data-count=\"none\">Tweet</a>");
+        twttr.widgets.load();
         $(this).html(elevatorPitch());
       });
-    }, 600);
+    }, 900);
   });
+
+  $(".activate-tooltip").tooltip();
 });
 
 
