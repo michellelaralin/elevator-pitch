@@ -478,9 +478,9 @@ fieldset[disabled] .btn {
     height: 100%;
     text-align: center;
     width: 100%;
-    max-width: 700px;
     margin: 0 auto;
   }
+
   .absolute-center {
     margin: auto;
     overflow: auto;
@@ -591,7 +591,9 @@ fieldset[disabled] .btn {
     }
     .absolute-center {
       padding: 0 40px;
-     /* height: 600px;*/
+    }
+    .elevator-container {
+      max-width: 700px;
     }
   }
 
@@ -606,6 +608,9 @@ fieldset[disabled] .btn {
     .absolute-center {
       padding: 0 40px;
      /* height: auto;*/
+    }
+    .elevator-container {
+      max-width: 700px;
     }
   }
   .eye, .entrepreneur-mouth {
