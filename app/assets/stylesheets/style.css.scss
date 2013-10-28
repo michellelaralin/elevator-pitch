@@ -386,13 +386,14 @@ $elevator-mover-color: darken(mix($primary, $accent, 10%), 10%);
   body {
     background: $background-color;
     overflow-x: hidden;
-    height: 100%;
     font-family: "omnes-pro", sans-serif;
     font-size: 15px;
     line-height: 1.4;
     font-weight: 600;
     color: lighten(saturate($primary, 10%), 10%);
     @include gradient($background-color, $primary);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
   }
 a {
   text-decoration: none;
@@ -479,19 +480,10 @@ fieldset[disabled] .btn {
     text-align: center;
     width: 100%;
     margin: 0 auto;
+    /*padding: 20px;*/
   }
 
-  .absolute-center {
-    margin: auto;
-    overflow: auto;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    position: absolute;
-    display: table;
-    height: auto;
-  }
+
   .entrepreneur {
     font-size: 80px;
     margin-top: 30px;
@@ -536,13 +528,12 @@ fieldset[disabled] .btn {
 .absolute {
   position: absolute;
 }
-      .entrepreneur-right-eye {
-      right: 41%;
-    }
-    .entrepreneur-left-eye {
-      left: 41%;
-      
-    }
+.entrepreneur-right-eye {
+  right: 41%;
+}
+.entrepreneur-left-eye {
+  left: 41%;
+}
     .eye {
       font-size: 14px;
       color: $accent;
@@ -581,8 +572,12 @@ fieldset[disabled] .btn {
       /*max-height: 400px;*/
     }
 
-
-  @media (min-width: 768px) {
+  @media (max-device-width: 500px) {
+    body {
+      font-size: 13px;
+    }
+  }
+  @media (min-width: 500px) {
     .wall {
       width: 10%;
     }
@@ -591,7 +586,17 @@ fieldset[disabled] .btn {
     }
     .absolute-center {
       padding: 0 40px;
+      display: table;
+      height: auto;
+      margin: auto;
+      overflow: auto;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      position: absolute;
     }
+
     .elevator-container {
       max-width: 700px;
     }
