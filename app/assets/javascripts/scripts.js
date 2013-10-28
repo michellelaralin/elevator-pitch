@@ -8,8 +8,9 @@
    mouth = $('.entrepreneur-mouth');
    wrapper = $('.absolute-center');
    toAnimate = $('.toAnimate');
-   $(document).on("click", "#next-pitch-button", function() {
-     $(this).blur();
+   $(document).on("mousedown", "#next-pitch-button", function() {
+     var button = $(this);
+     $(this).blur().attr("disabled", "disabled");
      var storePitch = String(elevatorPitch());
      doors.addClass('animate');
      // mover.addClass('animate');
@@ -19,14 +20,14 @@
      }, 2000);
      setTimeout(function() {
        pitch.html();
+       button.removeAttr("disabled");
        var tweetLength = 116;
        var tweetText = storePitch;
        var shortTweet = tweetText.substring(0, tweetLength);
        $(".twitter-button-area").html("<a href=\"https://www.twitter.com/share\" class=\"twitter-share-button\" data-url=\"http://startupelevatorpitch.com\" data-text=\"&ldquo;" + shortTweet + "&rdquo;\" data-dnt=\"true\" data-count=\"none\">Tweet</a>");
        twttr.widgets.load();
-       pitch.fadeIn(500, function() {
-         $(this).html(storePitch);
-       });
+       pitch.html(storePitch);
+
      }, 1000);
    });
 

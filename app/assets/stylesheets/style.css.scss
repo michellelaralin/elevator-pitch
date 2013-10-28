@@ -516,10 +516,17 @@ fieldset[disabled] .btn {
     &:hover {
       color: lighten($button-text-color, 10%);
     }
+    &:focus {
+      color: $button-text-color;
+    }
     &:active {
       position: relative;
       bottom: -2px; 
       box-shadow: none;
+      color: $button-text-color;
+    }
+    &[disabled], &.disabled {
+      color: $button-text-color;
     }
   }
 .absolute {
@@ -613,6 +620,7 @@ fieldset[disabled] .btn {
         position: relative;
         bottom: -2px; 
         box-shadow: none;
+
       }
     }
     .wall {
