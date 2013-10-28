@@ -1,34 +1,33 @@
 .elevator-container
   .absolute-center
-    .dynamicHeight
-      .background-transparent.append-area
-        .text-right.relative.sharing-area
-          .transparent.twitter-button-area
-            %a{href: "https://twitter.com/share", class: "twitter-share-button", "data-url" => "http://startupelevatorpitch.com", "data-text" => "Startup Elevator Pitch Generator (100% cloud-based, disruptive, and agile)", "data-dnt" => "true", "data-count" => "none"}
-              Tweet
-          %a.absolute.tweet-link
-            %i.icon-twitter
-            tweet
-        %h1.elevator-pitch-text
-          Ready for some elevator pitches that will DISRUPT your startup?
-      .background-transparent.text-center
-        .margin10.inline-block.relative
-          %i.icon-person4.entrepreneur
-          .entrepreneur-left-eye.absolute.eye
-            &bull;
-          .entrepreneur-right-eye.absolute.eye
-            &bull;
-          .entrepreneur-mouth.absolute
-            &smile;
-      .text-center
-        %a.btn.btn-xlarge.get-new-pitch-button.activate-tooltip#next-pitch-button
-          Pitch Me
-        .margin30.credits
-          Built by
-          =link_to "Michelle Lara Lin", "http://michellelaralin.com", target: "_blank", class: "activate-tooltip", title: "I like to build and design stuff. You should check out Quotesome. ;)", data:{placement: "bottom", animation: "fade"}
-          , co-founder of 
-          =link_to "Quotesome", "https://www.quotesome.com", target: "_blank", class: "activate-tooltip", title: "A data-driven content discovery toolkit disrupting the traditional textual media engagement experience through crowdsourced content and personalization.", data:{placement: "bottom", animation: "fade"}
-          %i.icon-heart
-.door.door-left
-.door.door-right
-.elevator-mover
+    .background-transparent
+      .text-right.relative.sharing-area
+        .transparent.twitter-button-area
+          %a{href: "https://twitter.com/share", class: "twitter-share-button", "data-url" => "http://startupelevatorpitch.com", "data-text" => "Startup Elevator Pitch Generator (100% cloud-based, disruptive, and agile)", "data-dnt" => "true", "data-count" => "none"}
+            Tweet
+        %a.absolute.tweet-link
+          %i.icon-twitter
+          tweet
+      %h1.elevator-pitch-text
+        Ready for some elevator pitches that will DISRUPT your startup?
+    .background-transparent.text-center
+      .margin10.inline-block.relative
+        %i.icon-person4.entrepreneur
+        .entrepreneur-left-eye.absolute.eye
+          &bull;
+        .entrepreneur-right-eye.absolute.eye
+          &bull;
+        .entrepreneur-mouth.absolute
+          &smile;
+    .text-center
+      %a.btn.btn-xlarge.get-new-pitch-button.activate-tooltip#next-pitch-button
+        Pitch Me
+      .margin30.credits
+        Built by
+        =link_to "Michelle Lara Lin", "http://michellelaralin.com", target: "_blank", class: "activate-tooltip", title: "I like to build and design stuff. You should check out Quotesome. ;)", data:{placement: "bottom", animation: "fade"}
+        , co-founder of 
+        =link_to "Quotesome", "https://www.quotesome.com", target: "_blank", class: "activate-tooltip", title: "A data-driven content discovery toolkit disrupting the traditional textual media engagement experience through crowdsourced content and personalization.", data:{placement: "bottom", animation: "fade"}
+        %i.icon-heart
+.door.door-left.toAnimate
+.door.door-right.toAnimate
+-# .elevator-mover.toAnimate
