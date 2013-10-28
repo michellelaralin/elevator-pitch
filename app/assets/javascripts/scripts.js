@@ -1,22 +1,19 @@
  $(function() {
    $(".activate-tooltip").tooltip();
    doors = $('.door');
-   doorLeft = $('.door-left');
-   doorRight = $('.door-right');
-   // mover = $('.elevator-mover');
+   mover = $('.elevator-mover');
    pitch = $('.elevator-pitch-text');
-   mouth = $('.entrepreneur-mouth');
-   wrapper = $('.absolute-center');
-   toAnimate = $('.toAnimate');
    $(document).on("mousedown", "#next-pitch-button", function() {
      var button = $(this);
-     $(this).blur().attr("disabled", "disabled");
+      setTimeout(function() {
+      button.blur().attr("disabled", "disabled");
+     }, 200);
      var storePitch = String(elevatorPitch());
      doors.addClass('animate');
-     // mover.addClass('animate');
+     mover.addClass('animate');
      setTimeout(function() {
        doors.removeClass('animate');
-       // mover.removeClass('animate');
+       mover.removeClass('animate');
      }, 2000);
      setTimeout(function() {
        pitch.html();
@@ -24,13 +21,12 @@
        var tweetLength = 116;
        var tweetText = storePitch;
        var shortTweet = tweetText.substring(0, tweetLength);
-       $(".twitter-button-area").html("<a href=\"https://www.twitter.com/share\" class=\"twitter-share-button\" data-url=\"http://startupelevatorpitch.com\" data-text=\"&ldquo;" + shortTweet + "&rdquo;\" data-dnt=\"true\" data-count=\"none\">Tweet</a>");
+       var twitterButtonWrap = $(".twitter-button-area");
+       twitterButtonWrap.html("<a href=\"https://www.twitter.com/share\" class=\"twitter-share-button\" data-url=\"http://startupelevatorpitch.com\" data-text=\"&ldquo;" + shortTweet + "&rdquo;\" data-dnt=\"true\" data-count=\"none\">Tweet</a>");
        twttr.widgets.load();
        pitch.html(storePitch);
-
      }, 1000);
    });
-
    function elevatorPitch() {
      var intros = ["We are", "Basically, we're", "We're building"]
      intros.singular = "intro";

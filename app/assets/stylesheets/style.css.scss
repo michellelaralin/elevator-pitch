@@ -354,31 +354,7 @@ $elevator-door-color: darken(mix($accent, $primary, 20%), 10%);
 $elevator-border: darken($elevator-door-color, 5%);
 $elevator-mover-color: darken(mix($primary, $accent, 10%), 10%);
 
-  .elevator-slider { position: relative; overflow: auto; }
-  .elevator-slider ul { padding: 0; }
-  .elevator-slider li { list-style: none; padding: 0; height: 400px;}
-  .elevator-slider ul li { float: left; position: relative; }
-  .elevator-pitch-text {
-    font-family: $sans-serif;
-    line-height: 1.4;
-    font-weight: 700;
-    text-transform: normal;
-    text-align: center;
-    border-radius: 50px;
-    background-color: $speech-bubble-background-color;
-    color: $speech-bubble-text-color;
-    position: relative;
-    margin: 0;
-    &:after {
-      content: ' ';
-      border-left: transparent 15px solid;
-      border-right: transparent 15px solid;
-      border-top: $speech-bubble-background-color 15px solid;
-      position: absolute;
-      bottom: -14px;
-      left: 47%;
-    }
-  }
+
 
   html, body {
     height: 100%;
@@ -390,7 +366,7 @@ $elevator-mover-color: darken(mix($primary, $accent, 10%), 10%);
     font-size: 15px;
     line-height: 1.4;
     font-weight: 600;
-    color: lighten(saturate($primary, 10%), 10%);
+    color: lighten($primary-light, 5%);
     @include gradient($background-color, $primary);
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -483,52 +459,75 @@ fieldset[disabled] .btn {
     /*padding: 20px;*/
   }
 
-
-  .entrepreneur {
-    font-size: 80px;
-    margin-top: 30px;
-    color: $entrepreneur-color;
-  }
-
-  .face {
+.elevator-pitch-text {
+  font-family: $sans-serif;
+  line-height: 1.4;
+  font-weight: 700;
+  text-transform: normal;
+  text-align: center;
+  border-radius: 50px;
+  background-color: $speech-bubble-background-color;
+  color: $speech-bubble-text-color;
+  position: relative;
+  margin: 0;
+  &:after {
+    content: ' ';
+    border-left: transparent 15px solid;
+    border-right: transparent 15px solid;
+    border-top: $speech-bubble-background-color 15px solid;
     position: absolute;
-    top: 28%;
-    left: 37%;
-    font-size: 24px;
-    color: $entrepeneur-facials-color;
+    bottom: -14px;
+    left: 47%;
   }
+}
 
-    .get-new-pitch-button {
-    background-color: $button-background-color;
-    color: $button-text-color;
-    font-family: $sans-serif;
-    font-weight: 700;
-    cursor: pointer;
-    letter-spacing: 2px;
-    font-size: 20px;
-    padding: 13px 24px;
-    border-radius: 20px;
-    text-transform: uppercase;
-    position: relative;
-    bottom: 5px;
-    margin-top: 0px;
-    box-shadow: 0 5px 0 darken($button-background-color, 5%);
-    &:hover {
-      color: lighten($button-text-color, 10%);
-    }
-    &:focus {
-      color: $button-text-color;
-    }
-    &:active {
-      position: relative;
-      bottom: -2px; 
-      box-shadow: none;
-      color: $button-text-color;
-    }
-    &[disabled], &.disabled {
-      color: $button-text-color;
-    }
+
+
+.entrepreneur {
+  font-size: 80px;
+  margin-top: 30px;
+  color: $entrepreneur-color;
+}
+
+.face {
+  position: absolute;
+  top: 28%;
+  left: 37%;
+  font-size: 24px;
+  color: $entrepeneur-facials-color;
+}
+
+.get-new-pitch-button {
+  background-color: $button-background-color;
+  color: $button-text-color;
+  font-family: $sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 2px;
+  font-size: 20px;
+  padding: 13px 24px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  position: relative;
+  bottom: 5px;
+  margin-top: 0px;
+  box-shadow: 0 5px 0 darken($button-background-color, 5%);
+  &:hover {
+    color: lighten($button-text-color, 10%);
   }
+  &:focus {
+    color: $button-text-color;
+  }
+  &:active {
+    position: relative;
+    bottom: -2px; 
+    box-shadow: none;
+    color: $button-text-color;
+  }
+  &[disabled], &.disabled {
+    color: $button-text-color;
+  }
+}
 .absolute {
   position: absolute;
 }
@@ -538,47 +537,61 @@ fieldset[disabled] .btn {
 .entrepreneur-left-eye {
   left: 41%;
 }
-    .eye {
-      font-size: 14px;
-      color: $accent;
-      font-weight: bold;
-      top: 17%;
-      }
-    .entrepreneur-mouth {
-      left: 42%;
-      top: 30%;
-      font-size: 20px;
-      color: $accent;
-      font-weight: bold;
-    }
+.eye {
+  font-size: 14px;
+  color: $accent;
+  font-weight: bold;
+  top: 17%;
+  }
+.entrepreneur-mouth {
+  left: 42%;
+  top: 30%;
+  font-size: 20px;
+  color: $accent;
+  font-weight: bold;
+}
 
-    .elevator-pitch-text {
-      font-size: 24px;
-      padding: 30px;
-    }
+.elevator-pitch-text {
+  font-size: 24px;
+  padding: 30px;
+}
 
 
-    .wall {
-      width: 0;
-    }
-    .elevator-pitch-text {
-      font-size: 20px;
-      padding: 20px;
-      &:after {
-      border-left: transparent 15px solid;
-      border-right: transparent 15px solid;
-      border-top: $speech-bubble-background-color 15px solid;
-      bottom: -14px;
-      }
-    }
-    .absolute-center {
-      padding: 0 15px;
-      /*max-height: 400px;*/
-    }
+.wall {
+  width: 0;
+}
+.elevator-pitch-text {
+  font-size: 20px;
+  padding: 20px;
+  &:after {
+  border-left: transparent 15px solid;
+  border-right: transparent 15px solid;
+  border-top: $speech-bubble-background-color 15px solid;
+  bottom: -14px;
+  }
+}
+.absolute-center {
+  padding: 0 15px;
+  /*max-height: 400px;*/
+}
+
+.eye, .entrepreneur-mouth {
+color: $entrepeneur-facials-color;
+}
+
+.door {
+position: fixed;
+top: 0;
+width: 50%;
+height: 100%;
+background: $elevator-door-color;
+z-index: 10;
+}
+
 
   @media (max-device-width: 500px) {
     body {
-      font-size: 13px;
+      font-size: 15px;
     }
   }
   @media (min-width: 500px) {
@@ -607,128 +620,155 @@ fieldset[disabled] .btn {
     }
   }
 
-  @media (min-width: 1000px) {
-      .get-new-pitch-button {
-        &:hover {
-        color: lighten($button-text-color, 10%);
-        background-color: saturate($button-background-color, 10%);
-        position: relative;
-        bottom: 15px;
-        box-shadow: 0 10px 0 darken($button-background-color, 3%);
-      }
-      &:active {
-        position: relative;
-        bottom: -2px; 
-        box-shadow: none;
-
-      }
+@media (min-width: 1000px) {
+  .get-new-pitch-button {
+    font-size: 22px;
+    &:hover {
+    color: lighten($button-text-color, 10%);
+    background-color: saturate($button-background-color, 10%);
+    position: relative;
+    bottom: 15px;
+    box-shadow: 0 10px 0 darken($button-background-color, 3%);
     }
-    .wall {
-      width: 20%;
-    }
-    .elevator-pitch-text {
-      padding: 30px;
-      margin: 0 30px;
-    }
-    .absolute-center {
-      padding: 0 40px;
-     /* height: auto;*/
-    }
-    .elevator-container {
-      max-width: 700px;
+    &:active {
+      position: relative;
+      bottom: -2px; 
+      box-shadow: none;
     }
   }
-  .eye, .entrepreneur-mouth {
-    color: $entrepeneur-facials-color;
+  .wall {
+    width: 20%;
+  }
+  .elevator-pitch-text {
+    padding: 30px;
+    margin: 0 30px;
+    font-size: 28px;
+  }
+  .absolute-center {
+    padding: 0 40px;
+    height: 500px;
+  }
+  .elevator-container {
+    max-width: 700px;
   }
 
-  .door {
-    position: fixed;
-    top: 0;
-    width: 50%;
-    height: 100%;
-    background: $elevator-door-color;
-    z-index: 10;
+}
+
+@media (min-width: 1600px) {
+  body {
+    font-size: 20px;
   }
-/*
-  .elevator-mover {
-    position: fixed;
-    z-index: 11;
+  .get-new-pitch-button {
+      font-size: 28px;
+  }
+  .elevator-pitch-text {
+    padding: 50px;
+    margin: 0 30px;
+    font-size: 34px;
+    &:after {
+      content: ' ';
+      border-left: transparent 25px solid;
+      border-right: transparent 25px solid;
+      border-top: $speech-bubble-background-color 25px solid;
+      position: absolute;
+      bottom: -25px;
+      left: 47%;
+    }
+  }
+  .entrepreneur {
+    font-size: 100px;
+  }
+  .absolute-center {
+    padding: 0 40px;
+    height: 600px;
+  }
+  .elevator-container {
+    max-width: 1000px;
+  }
+
+  .eye {
+    top: 20%;
+    }
+}
+
+
+
+.elevator-mover {
+  position: fixed;
+  z-index: 11;
+  bottom: 100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: mix($elevator-mover-color, $primary, 20%);
+}
+
+.elevator-mover.animate {
+  @include animation(up, 1s);
+  -webkit-animation-delay: 0.6s;
+  -moz-animation-delay: 0.6s;
+  -o-animation-delay: 0.6s;
+}
+
+.door-left {
+  left: -100%;
+  border-right: 5px solid $elevator-border;
+}
+.door-left.animate {
+  @include animation(left, 2.5s);
+}
+
+.door-right {
+  right: -100%;
+  border-left: 5px solid $elevator-border;
+}
+.door-right.animate {
+  @include animation(right, 2.5s);
+}
+
+@include keyframez(up) {
+  0% {
+    bottom: -100%;
+  }
+  100% {
     bottom: 100%;
+  }
+}
+
+@include keyframez(left) {
+  0% {
+
+  }
+  30% {
     left: 0;
-    width: 100%;
-    height: 100%;
-    background: mix($elevator-mover-color, $primary, 20%);
-    animation-delay: 0.4s;
-    -webkit-animation-delay: 0.4s;
-    -moz-animation-delay: 0.4s;
-    -o-animation-delay: 0.4s;
   }
-
-  .elevator-mover.animate {
-    @include animation(up, 0.5s);
-
-  }*/
-
-  .door-left {
+  50% {
+    left: 0;
+  }
+  60% {
+    left: 0;
+  }
+  100% {
     left: -100%;
-    border-right: 5px solid $elevator-border;
   }
-  .door-left.animate {
-    @include animation(left, 2.5s);
-  }
+}
+@include keyframez(right) {
+  0% {
 
-  .door-right {
+  }
+  30% {
+    right: 0;
+  }
+  50% {
+    right: 0;
+  }
+  60% {
+    right: 0;
+  }
+  100% {
     right: -100%;
-    border-left: 5px solid $elevator-border;
   }
-  .door-right.animate {
-    @include animation(right, 2.5s);
-  }
-
-  @include keyframez(up) {
-    0% {
-      bottom: -100%;
-    }
-    100% {
-      bottom: 100%;
-    }
-  }
-
-  @include keyframez(left) {
-    0% {
-
-    }
-    30% {
-      left: 0;
-    }
-    50% {
-      left: 0;
-    }
-    60% {
-      left: 0;
-    }
-    100% {
-      left: -100%;
-    }
-  }
-  @include keyframez(right) {
-    0% {
-
-    }
-    30% {
-      right: 0;
-    }
-    50% {
-      right: 0;
-    }
-    60% {
-      right: 0;
-    }
-    100% {
-      right: -100%;
-    }
-  }
+}
 
 
 
@@ -751,9 +791,6 @@ fieldset[disabled] .btn {
 .noMarginBottom{margin-bottom:0 !important}
 .noMarginLeft{margin-left:0 !important}
 .noPadding{padding: 0 !important; -webkit-padding-start: 0px;-webkit-padding-end: 0px;}
-.noPaddingRight{padding-right: 0 !important}
-.noPaddingTop{padding-top: 0 !important}
-.noUnderline{text-decoration: none !important;}
 .nowrap{white-space:nowrap !important}
 .fixed{position:fixed !important}
 .invisible{visibility:hidden !important}
@@ -786,17 +823,9 @@ fieldset[disabled] .btn {
     overflow: hidden; }
 .text-centered {text-align: center;}
 .margin-centered{margin-left: auto;margin-right: auto;}
-.valign-outer{display:table;}
-.valign-inner{display:table-cell;vertical-align:middle;}
 
-.slow-transition {-webkit-transition:  all 1s ease-in-out;-moz-transition: all 1s ease-in-out;-ms-transition: all 1s ease-in-out;-o-transition: all 1s ease-in-out;transition: all 1s ease-in-out;}
-.medium-transition {-webkit-transition:  all 0.5s ease-in-out;-moz-transition: all 0.5s ease-in-out;-ms-transition: all 0.5s ease-in-out;-o-transition: all 0.5s ease-in-out;transition: all 0.5s ease-in-out;}
 .fast-transition { -webkit-transition:  all 0.2s ease-in-out;-moz-transition: all 0.2s ease-in-out;-ms-transition: all 0.2s ease-in-out;-o-transition: all 0.2s ease-in-out;transition: all 0.2s ease-in-out; }
 
-.shrink-text {
-  font-size: 100%;
-  line-height: 1.1;
-}
 .margin5 {
     margin-top: 5px;
 }
