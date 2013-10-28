@@ -1,3 +1,48 @@
+$(function(){
+
+
+
+  $(".activate-tooltip").tooltip();
+
+
+
+  $("#next-pitch-button").click(function(){
+          doors = $('.door');
+          mover = $('.elevator-mover');
+          pitch = $('.elevator-pitch-text');
+          mouth = $('.entrepreneur-mouth');
+          wrapper = $('.absolute-center');
+
+          var doorsisAnimated = doors.hasClass('animate');
+          var moverisAnimated = mover.hasClass('animate');
+
+          if (!(doorsisAnimated || moverisAnimated)) {
+          $(this).blur().disable();
+          doors.addClass('animate');
+          mover.addClass('animate');
+          setTimeout(function(){
+            pitch.html();
+              var tweetLength = 116;
+              var tweetText = elevatorPitch();
+              var shortTweet = tweetText.substring(0,tweetLength);
+              $(".twitter-button-area").html("<a href=\"https://www.twitter.com/share\" class=\"twitter-share-button\" data-url=\"http://startupelevatorpitch.com\" data-text=\"&ldquo;" + shortTweet + "&rdquo;\" data-dnt=\"true\" data-count=\"none\">Tweet</a>");
+              twttr.widgets.load();
+
+            pitch.fadeIn(500, function(){
+              $(this).html(elevatorPitch());
+            });
+          }, 600);
+
+          setTimeout(function(){
+            doors.removeClass('animate');
+            mover.removeClass('animate');
+          }, 1000);
+        }
+        else {
+          alert("yikes... calm down with the clicking!");  
+        }
+  });
+
 function elevatorPitch() {
   var intros = ["We are", "Basically, we're", "We're building"]
   intros.singular = "intro";
@@ -70,43 +115,6 @@ function elevatorPitch() {
 
 }
 
-$(function(){
-  $(".activate-tooltip").tooltip();
+
 });
-
-
-  function NextPitch() {
-    $(this).blur();
-    doors = $('.door');
-    mover = $('.elevator-mover');
-    pitch = $('.elevator-pitch-text');
-    mouth = $('.entrepreneur-mouth');
-    wrapper = $('.absolute-center');
-    if (doors.hasClass('animate')) {
-      doors.removeClass('animate');
-    }
-    if (mover.hasClass('animate')) {
-      mover.removeClass('animate');
-    }
-    setTimeout(function(){
-      doors.addClass('animate');
-      mover.addClass('animate');
-    }, 100);
-    setTimeout(function(){
-      pitch.html();
-      pitch.fadeIn(500, function(){
-
-        var tweetLength = 116;
-        var tweetText = elevatorPitch();
-        var shortTweet = tweetText.substring(0,tweetLength);
-
-        $(".twitter-button-area").html("<a href=\"https://www.twitter.com/share\" class=\"twitter-share-button\" data-url=\"http://startupelevatorpitch.com\" data-text=\"&ldquo;" + shortTweet + "&rdquo;\" data-dnt=\"true\" data-count=\"none\">Tweet</a>");
-        twttr.widgets.load();
-        $(this).html(elevatorPitch());
-      });
-    }, 900);
-  }
-
-
-
 
