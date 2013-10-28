@@ -12,6 +12,7 @@
 
   $(document).on ("click", "#next-pitch-button", function(){
       $(this).blur();
+
       var storePitch = String(elevatorPitch());
 
       doors.addClass('animate');
@@ -32,7 +33,7 @@
           pitch.fadeIn(500, function(){
             $(this).html(storePitch);
           });
-        }, 600);
+        }, 1000);
     });
 
  function elevatorPitch() {
